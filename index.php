@@ -28,11 +28,15 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 session_start();
 
-if (!empty($_SESSION['length'])) {
-    $_SESSION['length'] = $passwordLength;
+if (!empty($_GET['length'])) {
+    $_SESSION['length'] = $_GET['length'];
 }
 
 include __DIR__ . '/helpers/functions.php';
+
+if (!empty($password)) {
+    $_SESSION['password'] = $password;
+}
 
 ?>
 

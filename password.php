@@ -1,7 +1,9 @@
 <?php 
+
 session_start();
 
-include __DIR__ . '/helpers/functions.php'; 
+
+
 
 ?>
 
@@ -21,7 +23,7 @@ include __DIR__ . '/helpers/functions.php';
         <div class="card rounded-0 shadow">
             <div class="card-body p-5">
 
-                <p>Your password is <?= $password ?></p>
+                <p>Your password is <?= $_SESSION['password'] ?></p>
 
             </div>
         </div>
