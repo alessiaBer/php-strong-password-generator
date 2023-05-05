@@ -27,14 +27,18 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 
 session_start();
-include __DIR__ . '/helpers/functions.php';
 
 if (!empty($_GET['length'])) {
     $_SESSION['length'] = $_GET['length'];
     redirect();
 }
 
+function redirect() {
+    header('Location: ./password.php');
+    die(); 
+};
 
+include __DIR__ . '/helpers/functions.php';
 
 if (!empty($password)) {
     $_SESSION['password'] = $password;

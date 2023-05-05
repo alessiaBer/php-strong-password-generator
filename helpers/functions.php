@@ -23,9 +23,5 @@ function generatePassword ($length) {
     return $password;
 };
 
-function redirect() {
-    header('Location: ./password.php');
-    die(); 
-};
 
 ?>
