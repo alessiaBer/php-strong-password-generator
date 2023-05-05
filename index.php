@@ -23,7 +23,8 @@ Possono essere scelti singolarmente (es. solo numeri) oppure possono essere comb
 Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
 
 */
-include __DIR__ . '/helpers/functions.php';
+
+
 
 session_start();
 
@@ -31,6 +32,7 @@ if (!empty($_SESSION['length'])) {
     $_SESSION['length'] = $passwordLength;
 }
 
+include __DIR__ . '/helpers/functions.php';
 
 ?>
 

@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 
 if (!empty($_SESSION['length'])) {
     $passwordLength = $_SESSION['length'];
