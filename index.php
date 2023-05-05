@@ -4,6 +4,7 @@
 Descrizione
 Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro generatore di password (abbastanza) sicure. 
 L’esercizio è suddiviso in varie milestone ed è molto importante svilupparle in modo ordinato.
+
 Milestone 1
 Creare un form che invii in GET la lunghezza della password. 
 Una nostra funzione utilizzerà questo dato per generare una password casuale (composta da lettere, lettere maiuscole, numeri e simboli) 
@@ -22,6 +23,30 @@ Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, l
 Possono essere scelti singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre insieme). Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
 */
 
+if (!empty($_GET['length'])) {
+    $passwordLength = $_GET['length'];
+
+    $password = generatePassword($passwordLength); 
+};
+
+function generatePassword ($length) {
+    $alphabet = range('a', 'z');
+    $upperAlpha = range('A', 'Z');
+    $numbers = range('0', '9');
+    $symbols = str_split('!@#$%&_=+?');
+    $characters = array_merge($alphabet, $upperAlpha, $numbers, $symbols);
+
+    for ($i = 0; $i < $length; $i++) {
+        $random = rand(1, 72);
+        $passwordArray[$i] = $characters[$random]; 
+    } 
+
+    $password = join($passwordArray);
+
+    return $password;
+};
+
+
 
 ?>
 
@@ -35,21 +60,26 @@ Possono essere scelti singolarmente (es. solo numeri) oppure possono essere comb
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-    <h1>PHP Strong Password Generator</h1>
+
     <div class="container">
+        <h1>PHP Strong Password Generator</h1>
         <div class="card rounded-0 shadow">
-            <div class="card-body">
+            <div class="card-body p-5">
                 <form action="" method="get">
-                    <div class="mb-3">
-                        <label for="length" class="form-label">Password length:</label>
-                        <input type="text" class="form-control" id="length" name="length" placeholder="Type the number of characters">
+                    <div class="mb-3 d-flex">
+                        <label for="length" class="form-label w-50">Password length:</label>
+                        <input type="text" class="form-control w-50" id="length" name="length" placeholder="Type the number of characters">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Send</button>
                     <button type="reset" class="btn btn-light">Cancel</button>
                 </form>
+                <?php if(!empty($_GET['length'])) : ?>
+                <p class="pt-4">Your password is <?= $password ?></p>
+                <?php endif ?>
             </div>
         </div>
     </div>
+
 </body>
 </html>
