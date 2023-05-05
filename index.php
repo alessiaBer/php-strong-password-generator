@@ -23,6 +23,7 @@ Possono essere scelti singolarmente (es. solo numeri) oppure possono essere comb
 Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
 
 */
+include __DIR__ . '/helpers/functions.php';
 
 session_start();
 
@@ -52,6 +53,31 @@ if (!empty($_SESSION['length'])) {
                     <div class="mb-3 d-flex">
                         <label for="length" class="form-label w-50">Password length:</label>
                         <input type="number" class="form-control w-50" id="length" name="length" min="1" max="25">
+                    </div>
+
+                    <div class="mb-3">
+
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Lettere
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Numeri
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Simboli
+                            </label>
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Send</button>

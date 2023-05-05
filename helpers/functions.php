@@ -1,10 +1,11 @@
 <?php 
-session_start();
 
+session_start();
 
 if (!empty($_SESSION['length'])) {
     $passwordLength = $_SESSION['length'];
     $password = generatePassword($passwordLength); 
+    header('Location: ./password.php');
 };
 
 function generatePassword ($length) {
@@ -23,7 +24,5 @@ function generatePassword ($length) {
 
     return $password;
 };
-
-$_SESSION['password'] = $password;
 
 ?>
