@@ -22,7 +22,7 @@ Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, l
 Possono essere scelti singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre insieme). Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
 */
 
-include __DIR__ . '/helpers/functions.php'
+include __DIR__ . '/helpers/functions.php'; 
 
 ?>
 
@@ -38,21 +38,18 @@ include __DIR__ . '/helpers/functions.php'
 <body>
 
     <div class="container">
-        <h1>PHP Strong Password Generator</h1>
+        <h1 class="py-5">PHP Strong Password Generator</h1>
         <div class="card rounded-0 shadow">
             <div class="card-body p-5">
-                <form action="" method="get">
+                <form action="password.php" method="get">
                     <div class="mb-3 d-flex">
                         <label for="length" class="form-label w-50">Password length:</label>
-                        <input type="text" class="form-control w-50" id="length" name="length" placeholder="Type the number of characters">
+                        <input type="number" class="form-control w-50" id="length" name="length" min="1" max="25">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Send</button>
                     <button type="reset" class="btn btn-light">Cancel</button>
                 </form>
-                <?php if(!empty($_GET['length'])) : ?>
-                <p class="pt-4">Your password is <?= $password ?></p>
-                <?php endif ?>
             </div>
         </div>
     </div>
