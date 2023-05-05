@@ -27,16 +27,19 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 
 session_start();
+include __DIR__ . '/helpers/functions.php';
 
 if (!empty($_GET['length'])) {
     $_SESSION['length'] = $_GET['length'];
+    redirect();
 }
 
-include __DIR__ . '/helpers/functions.php';
+
 
 if (!empty($password)) {
     $_SESSION['password'] = $password;
 }
+
 
 ?>
 
@@ -58,7 +61,7 @@ if (!empty($password)) {
                 <form method="get">
                     <div class="mb-3 d-flex">
                         <label for="length" class="form-label w-50">Password length:</label>
-                        <input type="number" class="form-control w-50" id="length" name="length" min="1" max="25">
+                        <input type="number" class="form-control w-50" id="length" name="length" min="1" max="35">
                     </div>
 
                     <div class="mb-3">

@@ -5,6 +5,7 @@ if (!empty($_SESSION['length'])) {
     $password = generatePassword($passwordLength); 
 };
 
+
 function generatePassword ($length) {
     $alphabet = range('a', 'z');
     $upperAlpha = range('A', 'Z');
@@ -22,5 +23,9 @@ function generatePassword ($length) {
     return $password;
 };
 
+function redirect() {
+    header('Location: ./password.php');
+    die(); 
+};
 
 ?>
