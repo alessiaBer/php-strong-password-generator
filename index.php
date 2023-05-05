@@ -1,5 +1,4 @@
 <?php 
-
 /*
 Descrizione
 Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro generatore di password (abbastanza) sicure. 
@@ -23,30 +22,7 @@ Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, l
 Possono essere scelti singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre insieme). Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
 */
 
-if (!empty($_GET['length'])) {
-    $passwordLength = $_GET['length'];
-
-    $password = generatePassword($passwordLength); 
-};
-
-function generatePassword ($length) {
-    $alphabet = range('a', 'z');
-    $upperAlpha = range('A', 'Z');
-    $numbers = range('0', '9');
-    $symbols = str_split('!@#$%&_=+?');
-    $characters = array_merge($alphabet, $upperAlpha, $numbers, $symbols);
-
-    for ($i = 0; $i < $length; $i++) {
-        $random = rand(1, 72);
-        $passwordArray[$i] = $characters[$random]; 
-    } 
-
-    $password = join($passwordArray);
-
-    return $password;
-};
-
-
+include __DIR__ . '/helpers/functions.php'
 
 ?>
 
