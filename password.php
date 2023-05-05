@@ -1,6 +1,9 @@
 <?php 
+session_start();
 
-include __DIR__ . '/helpers/functions.php'
+/* include __DIR__ . '/helpers/functions.php'; */
+
+$_SESSION['password'] = $password;
 
 ?>
 

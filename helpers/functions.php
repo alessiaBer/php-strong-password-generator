@@ -1,8 +1,9 @@
 <?php 
+session_start();
 
-if (!empty($_GET['length'])) {
-    $passwordLength = $_GET['length'];
 
+if (!empty($_SESSION['length'])) {
+    $passwordLength = $_SESSION['length'];
     $password = generatePassword($passwordLength); 
 };
 
@@ -23,6 +24,6 @@ function generatePassword ($length) {
     return $password;
 };
 
-
+$_SESSION['password'] = $password;
 
 ?>
