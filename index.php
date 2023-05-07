@@ -36,6 +36,7 @@ function redirect()
     header('Location: ./password.php');
 };
 
+
 include __DIR__ . '/helpers/functions.php';
 
 if (!empty($password)) {
@@ -70,41 +71,44 @@ session_cache_expire();
                         <input type="number" class="form-control w-50" id="length" name="length" min="1" max="35">
                     </div>
 
-                    <div class="mb-4 d-flex justify-content-between">
-                        <label>Allow repetition:</label>
-                        <div class="repeat w-50">
+                    <div class="repeat_form d-flex justify-content-between">
+                        <label>Allow repetitions:</label>
+                        <div class="mb-4 w-50">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="repeat" id="repeat" checked>
-                                <label class="form-check-label" for="repeat">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" name="repeat" value="true" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="norepeat" id="norepeat">
-                                <label class="form-check-label" for="norepeat">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1" name="norepeat" value="false">
+                                <label class="form-check-label" for="flexRadioDefault1">
                                     No
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-3 d-flex justify-content-end">
+                    <div class="mb-3 d-flex justify-content-between">
+                        <label>Type of characters:</label>
                         <div class="characters-choice w-50">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="" id="letters" name="letters">
+                                <label class="form-check-label" for="letters">
                                     Letters
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="" id="numbers">
+                                <label class="form-check-label" for="numbers">
                                     Numbers
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="" id="symbols" name="symbols">
+                                <label class="form-check-label" for="symbols">
                                     Symbols
                                 </label>
                             </div>
@@ -112,12 +116,14 @@ session_cache_expire();
                     </div>
 
                     <button type="submit" class="btn btn-primary">Send</button>
-                    <button type="reset" class="btn btn-light">Cancel</button>
+                    <button type="reset" value="reset" class="btn btn-light">Cancel</button>
                 </form>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
