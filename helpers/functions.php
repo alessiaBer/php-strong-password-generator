@@ -2,7 +2,7 @@
 
 if (!empty($_SESSION['length'])) {
     $passwordLength = $_SESSION['length'];
-    $password = generatePassword($passwordLength); 
+    $password = generatePassword($passwordLength);
 };
 
 
